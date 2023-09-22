@@ -119,7 +119,7 @@
         <input type="text" id="StudSection" name="StudSection" placeholder="Section" value="<?=$j['StudSection'] ??''?>" required>
         <br>
         <label for="StudYear">Year Level</label>
-        <input type="number" id="StudYear" name="StudYear" placeholder="Year Level" value="<?=$j['StudYear'] ?? ''?>" required min="1" max="6">
+        <input type="number" id="StudYear" name="StudYear" placeholder="Select Year Level" value="<?=$j['StudYear'] ?? ''?>" required min="1" max="6">
         <br>
         <input type="submit" value="save">
     </form>
