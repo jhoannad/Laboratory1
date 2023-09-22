@@ -14,7 +14,7 @@ class MainController extends BaseController
         $data = [
             'StudName' => $this->request->getPost('StudName'),
             'StudGender' => $this->request->getPost('StudGender'),
-            'Course' => $this->request->getPost('Course'),
+            'StudCourse' => $this->request->getPost('StudCourse'),
             'StudSection' => $this->request->getPost('StudSection'),
             'StudYear' => $this->request->getPost('StudYear'),
         ];
