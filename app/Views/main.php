@@ -113,7 +113,7 @@
         </select>
         <br>
         <label for="StudCourse">Course</label>
-        <input type="text" id="StudCourse" name="StudCourse" placeholder="StudCourse" value="<?=$j['StudCourse'] ??''?>" required>
+        <input type="text" id="StudCourse" name="StudCourse" placeholder="Course" value="<?=$j['StudCourse'] ??''?>" required>
         <br>
         <label for="StudSection">Section</label>
         <input type="text" id="StudSection" name="StudSection" placeholder="Section" value="<?=$j['StudSection'] ??''?>" required>
