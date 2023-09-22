@@ -112,8 +112,8 @@
             <option value="Female">Female</option>
         </select>
         <br>
-        <label for="Course">Course</label>
-        <input type="text" id="Course" name="Course" placeholder="Course" value="<?=$j['Course'] ??''?>" required>
+        <label for="StudCourse">Course</label>
+        <input type="text" id="StudCourse" name="StudCourse" placeholder="StudCourse" value="<?=$j['StudCourse'] ??''?>" required>
         <br>
         <label for="StudSection">Section</label>
         <input type="text" id="StudSection" name="StudSection" placeholder="Section" value="<?=$j['StudSection'] ??''?>" required>
@@ -131,7 +131,7 @@
             <li>
                 <strong>Full Name:</strong> <?= $mode['StudName'] ?><br>
                 <strong>Gender:</strong> <?= $mode['StudGender'] ?><br>
-                <strong>Course:</strong> <?= $mode['Course'] ?><br>
+                <strong>StudCourse:</strong> <?= $mode['StudCourse'] ?><br>
                 <strong>Section:</strong> <?= $mode['StudSection'] ?><br>
                 <strong>Year Level:</strong> <?= $mode['StudYear'] ?><br>
                 <strong>Action:</strong> 
