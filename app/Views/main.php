@@ -48,6 +48,13 @@
         border-radius: 4px;
     }
 
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
     input[type="submit"] {
         background-color: #007bff;
         color: #fff;
@@ -67,25 +74,27 @@
         border: 1px solid #ccc;
         border-radius: 4px;
     }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 20px;
+    ul {
+    list-style-type: none;
+    padding: 0;
     }
 
-    th {
-        border: 1px solid #dddddd;
-        text-align: center;
-        padding: 8px;
-        background-color: #f2f2f2;
+    li {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
     }
 
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
+    li strong {
+        font-weight: bold;
     }
 
-    tr:hover {
-        background-color: #dddddd;
+    li a {
+        text-decoration: none;
+        color: #007bff; 
+        margin-left: 10px;
     }
 </style>
     </style>
@@ -94,10 +103,10 @@
     <form action="<?=base_url('save')?>" method="post">  
         <input type="hidden" name="id" value="<?= $j['id'] ?? '' ?>">
         <label for="StudName">Full Name</label>
-        <input type="text" id="StudName" name="StudName" placeholder="StudName" value="<?=$j['StudName'] ?? ''?>" required>
+        <input type="text" id="StudName" name="StudName" placeholder="FullName" value="<?=$j['StudName'] ?? ''?>" required>
         <br>
         <label for="StudGender">Gender</label>
-        <select id="StudGender" name="StudGender" placeholder="StudGender" value="<?=$j['StudGender'] ??''?>" required> 
+        <select id="StudGender" name="StudGender" placeholder="Gender" value="<?=$j['StudGender'] ??''?>" required> 
             <option value=" " disabled selected> Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -107,43 +116,30 @@
         <input type="text" id="Course" name="Course" placeholder="Course" value="<?=$j['Course'] ??''?>" required>
         <br>
         <label for="StudSection">Section</label>
-        <input type="text" id="StudSection" name="StudSection" placeholder="StudSection" value="<?=$j['StudSection'] ??''?>" required>
+        <input type="text" id="StudSection" name="StudSection" placeholder="Section" value="<?=$j['StudSection'] ??''?>" required>
         <br>
         <label for="StudYear">Year Level</label>
-        <select id="StudYear" name="StudYear" placeholder="StudYear" value="<?=$j['StudYear'] ??''?>" required>
-            <option value=" " disabled selected> Select Year </option>
-            <option value="1st">1st</option>
-            <option value="2nd">2nd</option>
-            <option value="3rd">3rd</option>
-            <option value="4th">4th</option>
-        </select>
+        <input type="number" id="StudYear" name="StudYear" placeholder="Year Level" value="<?=$j['StudYear'] ?? ''?>" required min="1" max="6">
         <br>
         <input type="submit" value="save">
     </form>
     </div>
     <div class="list-container">
     <h1> List of Students </h1>
-    <table border="1">
-        <tr>
-            <th>Full Name</th>
-            <th>Gender</th>
-            <th>Course</th>
-            <th>Section</th>
-            <th>Year Level</th>
-            <th>Action</th>
-        </tr>
+    <ul>
         <?php foreach ($main as $mode): ?>
-            <tr>
-                <th><?= $mode['StudName'] ?></th>
-                <th><?= $mode['StudGender'] ?></th>
-                <th><?= $mode['Course'] ?></th>
-                <th><?= $mode['StudSection'] ?></th>
-                <th><?= $mode['StudYear'] ?></th>
-                <th><a href="/edit/<?= $mode['id'] ?>"> Edit </a> || 
-                    <a href="/delete/<?= $mode['id'] ?>">Delete</a></th>
-            </tr>
-            <?php endforeach; ?>
-    </table>
+            <li>
+                <strong>Full Name:</strong> <?= $mode['StudName'] ?><br>
+                <strong>Gender:</strong> <?= $mode['StudGender'] ?><br>
+                <strong>Course:</strong> <?= $mode['Course'] ?><br>
+                <strong>Section:</strong> <?= $mode['StudSection'] ?><br>
+                <strong>Year Level:</strong> <?= $mode['StudYear'] ?><br>
+                <strong>Action:</strong> 
+                <a href="/edit/<?= $mode['id'] ?>">Edit</a> || 
+                <a href="/delete/<?= $mode['id'] ?>">Delete</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
     </div>
     </div>
 </body>
